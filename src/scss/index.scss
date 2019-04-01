@@ -1,0 +1,14 @@
+@import './configs/variables';
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import '~bootstrap/scss/bootstrap.scss';
+@import './configs/mixin';
+@import './components/welcome';
+@import './components/recipe';
