@@ -20,10 +20,10 @@ class Form extends Component {
 
   render() {
     return (
-      <form className="container mt-5" onSubmit={this.onSubmit}>
+      <form className="container mt-4" onSubmit={this.onSubmit}>
         <div className="form-group">
           <div className="row">
-            <div className="col-lg-8 col-md-12 col-sm-8 mx-auto">
+            <div className="col-sm-8 mx-auto">
               <input
                 className="form-control"
                 type="search"

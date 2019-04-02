@@ -5,6 +5,7 @@ import Navbar from './components/layout/Navbar';
 import Welcome from './components/layout/Welcome';
 import Recipes from './components/recipe/Recipes';
 import About from './components/layout/About';
+import RecipeDetails from './components/recipe/RecipeDetails';
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
           <Route path="/" exact component={Welcome} />
           <Route path="/recipes" exact component={Recipes} />
           <Route path="/about" exact component={About} />
+          <Route path="/recipe/:id" exact component={RecipeDetails} />
         </Switch>
       </BrowserRouter>
     );

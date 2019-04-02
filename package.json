@@ -29,6 +29,7 @@
     "gh-pages": "^2.0.1",
     "jquery": "^3.3.1",
     "node-sass": "^4.11.0",
+    "paginate-array": "^2.1.0",
     "popper.js": "^1.14.7",
     "react-router-dom": "^5.0.0"
   }
