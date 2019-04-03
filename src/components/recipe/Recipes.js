@@ -15,6 +15,21 @@ class Recipes extends Component {
     currPage: null
   };
 
+  componentDidMount() {
+    const recipesjson = localStorage.getItem('recipes');
+    const recipes = JSON.parse(recipesjson);
+    const currjson = localStorage.getItem('currPage');
+    const currPage = JSON.parse(currjson);
+    this.setState({ recipes: recipes, currPage: currPage });
+  }
+
+  componentDidUpdate() {
+    const currPageJson = JSON.stringify(this.state.currPage);
+    const recipesJson = JSON.stringify(this.state.recipes);
+    localStorage.setItem('currPage', currPageJson);
+    localStorage.setItem('recipes', recipesJson);
+  }
+
   previousPage = () => {
     const { page, size, recipes } = this.state;
 
@@ -42,19 +57,25 @@ class Recipes extends Component {
 
   // fetch data from api
   fetchRecipes = async recipe => {
-    const req = await fetch(
-      `https://www.food2fork.com/api/search?key=${API_KEY}&q=${recipe}`
-    );
-    const res = await req.json();
+    try {
+      const req = await fetch(
+        `https://www.food2fork.com/api/search?key=${API_KEY}&q=${recipe}`
+      );
+      const res = await req.json();
 
-    const { page, size } = this.state;
+      const { page, size } = this.state;
 
-    const currPage = await paginate(res.recipes, page, size);
+      const currPage = await paginate(res.recipes, page, size);
 
-    this.setState({
-      recipes: res.recipes,
-      currPage
-    });
+      this.setState({
+        recipes: res.recipes,
+        currPage
+      });
+    } catch {
+      alert(
+        'Sorry but this is a Free API and this is out of limit ( 50 times/day ) , please try again next day'
+      );
+    }
   };
 
   renderRecipe = currPage => {

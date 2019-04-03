@@ -8,8 +8,13 @@
   box-sizing: border-box;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 @import '~bootstrap/scss/bootstrap.scss';
 @import './configs/mixin';
 @import './components/welcome';
 @import './components/recipe';
 @import './components/header';
+@import './components/recipeDetails';

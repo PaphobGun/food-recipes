@@ -1,0 +1,20 @@
+.spinner {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+}
+
+.myTitle {
+  color: $primary;
+}
+
+.score {
+  font-size: 1.5rem;
+  color: skyblue;
+}
+
+.mb-resp {
+  @media only screen and (max-width: 768px) {
+    margin-bottom: 2rem;
+  }
+}
